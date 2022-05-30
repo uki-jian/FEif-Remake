@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/Scenes/Battleground-Sample.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
