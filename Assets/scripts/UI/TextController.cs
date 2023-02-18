@@ -9,7 +9,7 @@ public class TextController : MonoBehaviour
     public Text defenceText;
     public Text avoidanceText;
     public Text hitpointText;
-    public GridManagement gridManagement;
+    public GridManager gridManagement;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +19,10 @@ public class TextController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string name = gridManagement.chosenGrid.gridProperty.name;
-        int defenceBounus = gridManagement.chosenGrid.gridProperty.defenceBounus;
-        int avoidanceBounus = gridManagement.chosenGrid.gridProperty.avoidanceBounus;
-        int hitpointBounus = gridManagement.chosenGrid.gridProperty.hitpointBounus;
+        string name = gridManagement.currentGrid.gridProperty.name;
+        int defenceBounus = gridManagement.currentGrid.gridProperty.defenceBounus;
+        int avoidanceBounus = gridManagement.currentGrid.gridProperty.avoidanceBounus;
+        int hitpointBounus = gridManagement.currentGrid.gridProperty.hitpointBounus;
 
         nameText.text = name;
         defenceText.text = defenceBounus.ToString();

@@ -7,13 +7,13 @@ public class FSMBattleState : FSM
     public IState currentState;//当前状态
     public BattleStateType currentStateType;//当前状态类型
     public Dictionary<BattleStateType, IState> states = new Dictionary<BattleStateType, IState>();//状态字典
-    public FactoryOfUnitAndGrid factory;
+    public GameManager factory;
 
-    public UnitClass attackUnit;//进攻单位
-    public UnitClass defenceUnit;//防守单位
+    public RoleUnit attackUnit;//进攻单位
+    public RoleUnit defenceUnit;//防守单位
 
-    public UnitClass chosenUnit;
-    public GridClass chosenGrid;
+    public RoleUnit chosenUnit;
+    public GridUnit chosenGrid;
 
     Pos lastPos;
     int myArmyIndex = 0;

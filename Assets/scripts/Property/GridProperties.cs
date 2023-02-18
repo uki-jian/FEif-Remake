@@ -25,7 +25,7 @@ public class GridProperty
     public int defenceBounus;
     public int avoidanceBounus;
     public int hitpointBounus;
-    public int AccessibilityIndex;
+    public int AccessibilityIndex;  //走每格的cost
     public int altitude;
 
 }

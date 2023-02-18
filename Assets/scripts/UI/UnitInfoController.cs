@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UnitInfoController : MonoBehaviour
 {
-    public UnitManagement unitManager;
+    public RoleManager unitManager;
     public Text textName;
     public Text textClass;
     public Text textLevel;
@@ -29,10 +29,10 @@ public class UnitInfoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UnitClass unit = unitManager.chosenUnit;
+        RoleUnit unit = unitManager.chosenUnit;
         if (unit == null)
         {
-            unit = new UnitClass();
+            unit = new RoleUnit();
             unit.portrait = null;
         }
         else portrait.sprite = unit.portrait;

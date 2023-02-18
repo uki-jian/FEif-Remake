@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\Player\</OutputPath>
-    <DefineConstants>UNITY_2020_3_32;UNITY_2020_3;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;UNITY_UGP_API;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;UNITY_PRO_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;UNITY_POST_PROCESSING_STACK_V2;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2020_3_32;UNITY_2020_3;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;UNITY_UGP_API;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;UNITY_PRO_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;UNITY_POST_PROCESSING_STACK_V2;__MICROSPLAT__;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -53,56 +53,65 @@
     <UnityVersion>2020.3.32f1c1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\scripts\GridClass.cs" />
+    <Compile Include="Assets\scripts\GridUnit.cs" />
     <Compile Include="Assets\scripts\UI\SwitchController.cs" />
-    <Compile Include="Assets\scripts\FactoryOfUnitAndGrid.cs" />
+    <Compile Include="Assets\scripts\GameManager.cs" />
+    <Compile Include="Assets\3rd\AQUAS-Lite\Scripts\AQUAS_Lite_Reflection.cs" />
+    <Compile Include="Assets\scripts\state\StateBattleEndLose.cs" />
     <Compile Include="Assets\scripts\UI\UIRetract.cs" />
-    <Compile Include="Assets\Bandits - Pixel Art\Demo\Bandit.cs" />
+    <Compile Include="Assets\3rd\Bandits - Pixel Art\Demo\Bandit.cs" />
     <Compile Include="Assets\scripts\state\StateChooseUnit.cs" />
     <Compile Include="Assets\scripts\UI\TextController.cs" />
     <Compile Include="Assets\scripts\Utils\LightGlitter.cs" />
     <Compile Include="Assets\scripts\UI\MapTextController.cs" />
-    <Compile Include="Assets\Hero Knight - Pixel Art\Demo\Sensor_HeroKnight.cs" />
+    <Compile Include="Assets\scripts\Pos.cs" />
+    <Compile Include="Assets\3rd\Hero Knight - Pixel Art\Demo\Sensor_HeroKnight.cs" />
+    <Compile Include="Assets\scripts\state\StateChosenMovePos.cs" />
+    <Compile Include="Assets\3rd\AQUAS-Lite\Scripts\AQUAS_Lite_CamNav.cs" />
     <Compile Include="Assets\scripts\state\FSMBattleState.cs" />
     <Compile Include="Assets\scripts\state\StateBattleStart.cs" />
-    <Compile Include="Assets\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
-    <Compile Include="Assets\scripts\GridManagement.cs" />
+    <Compile Include="Assets\3rd\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
+    <Compile Include="Assets\scripts\GridManager.cs" />
     <Compile Include="Assets\scripts\Utils\OP2.cs" />
-    <Compile Include="Assets\scripts\UnitClass.cs" />
+    <Compile Include="Assets\scripts\RoleUnit.cs" />
     <Compile Include="Assets\scripts\Property\UnitProperties.cs" />
-    <Compile Include="Assets\scripts\UnitManagement.cs" />
-    <Compile Include="Assets\Pixel Map Terrain\Scripts\PixelMapTerrain.cs" />
+    <Compile Include="Assets\scripts\state\StateEnemyAct.cs" />
+    <Compile Include="Assets\scripts\RoleManager.cs" />
+    <Compile Include="Assets\3rd\Pixel Map Terrain\Scripts\PixelMapTerrain.cs" />
+    <Compile Include="Assets\scripts\state\FSM.cs" />
+    <Compile Include="Assets\3rd\AQUAS-Lite\Scripts\AQUAS_Lite_Camera.cs" />
     <Compile Include="Assets\scripts\state\IState.cs" />
-    <Compile Include="Assets\scripts\JsonParser.cs" />
-    <Compile Include="Assets\Hero Knight - Pixel Art\Demo\HeroKnight.cs" />
+    <Compile Include="Assets\scripts\state\StateBattleEndWin.cs" />
+    <Compile Include="Assets\scripts\JsonManager.cs" />
+    <Compile Include="Assets\3rd\Hero Knight - Pixel Art\Demo\HeroKnight.cs" />
     <Compile Include="Assets\scripts\NoUse\GridManagement1.cs" />
     <Compile Include="Assets\scripts\UI\UnitInfoController.cs" />
     <Compile Include="Assets\scripts\Utils\ObliqueProjection.cs" />
+    <Compile Include="Assets\scripts\state\StateChooseAttackObj.cs" />
     <Compile Include="Assets\scripts\SpriteObliqueProjection.cs" />
     <Compile Include="Assets\scripts\UI\ButtonClick.cs" />
-    <Compile Include="Assets\scripts\BattleFactory.cs" />
-    <Compile Include="Assets\Hero Knight - Pixel Art\ColorSwap\ColorSwap_HeroKnight.cs" />
-    <Compile Include="Assets\Hero Knight - Pixel Art\Demo\DestroyEvent_HeroKnight.cs" />
+    <Compile Include="Assets\scripts\BattleManager.cs" />
+    <Compile Include="Assets\3rd\Hero Knight - Pixel Art\ColorSwap\ColorSwap_HeroKnight.cs" />
+    <Compile Include="Assets\3rd\Hero Knight - Pixel Art\Demo\DestroyEvent_HeroKnight.cs" />
     <Compile Include="Assets\scripts\Utils\CameraRotate.cs" />
     <Compile Include="Assets\scripts\Property\JsonData.cs" />
     <Compile Include="Assets\scripts\Utils\CameraTranslate.cs" />
     <Compile Include="Assets\scripts\Property\GridProperties.cs" />
-    <Compile Include="Assets\scripts\state\StateChosenMovePos.cs" />
-    <Compile Include="Assets\scripts\state\FSM.cs" />
-    <Compile Include="Assets\scripts\state\StateChooseAttackObj.cs" />
-    <Compile Include="Assets\scripts\Pos.cs" />
-    <Compile Include="Assets\scripts\state\StateBattleEndWin.cs" />
-    <Compile Include="Assets\scripts\state\StateBattleEndLose.cs" />
-    <Compile Include="Assets\scripts\state\StateEnemyAct.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Cainos\Pixel Art Icon Pack - RPG\Shader\SH UI Icon Outline Color.shader" />
-    <None Include="Assets\Cainos\Pixel Art Icon Pack - RPG\Shader\SH Sprite Icon Outline Color.shader" />
-    <None Include="Assets\Cainos\Pixel Art Platformer - Village Props\Changelog.txt" />
-    <None Include="Assets\Pixel Map Terrain\README.txt" />
-    <None Include="Assets\Pixel Monster Pack\notes.txt" />
+    <None Include="Assets\3rd\Cainos\Pixel Art Icon Pack - RPG\Shader\SH UI Icon Outline Color.shader" />
+    <None Include="Assets\3rd\TerrainSampleAssets\ThirdPartyNotices.txt" />
+    <None Include="Assets\3rd\Cainos\Pixel Art Icon Pack - RPG\Shader\SH Sprite Icon Outline Color.shader" />
+    <None Include="Assets\3rd\Cainos\Pixel Art Platformer - Village Props\Changelog.txt" />
+    <None Include="Assets\3rd\Pixel Map Terrain\README.txt" />
+    <None Include="Assets\3rd\Pixel Monster Pack\notes.txt" />
+    <None Include="Assets\3rd\AQUAS-Lite\Shaders\AQUAS-Lite_Frontface.shader" />
     <None Include="Assets\Shaders\SpriteShader.shader" />
-    <None Include="Assets\Hero Knight - Pixel Art\ColorSwap\Sprites-ColorSwap.shader" />
+    <None Include="Assets\Shaders\learn\Chapter6-DiffusePixelLevel.shader" />
+    <None Include="Assets\3rd\AQUAS-Lite\Readme.txt" />
+    <None Include="Assets\3rd\AQUAS-Lite\Shaders\AQUAS-Lite_Backface.shader" />
+    <None Include="Assets\Shaders\learn\NormalMap.shader" />
+    <None Include="Assets\3rd\Hero Knight - Pixel Art\ColorSwap\Sprites-ColorSwap.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -320,6 +329,9 @@
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="JBooth.MicroSplat.Core.Editor">
+      <HintPath>Library\ScriptAssemblies\JBooth.MicroSplat.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
@@ -695,6 +707,10 @@
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
       <Project>{671DC193-9D97-2B85-F684-7F643DAB0085}</Project>
       <Name>UnityEngine.UI.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="JBooth.MicroSplat.Core.Player.csproj">
+      <Project>{89A9F683-F19A-F6A8-1F65-B38617F1F8F6}</Project>
+      <Name>JBooth.MicroSplat.Core.Player</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

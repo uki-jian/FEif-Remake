@@ -1,7 +1,9 @@
+*.meta
 *.jpg
 *.png
 PSAssets/
 BlenderAssets/
+Assets/3rd
 Assets/Ground textures pack/
 Assets/Hero Knight - Pixel Art/
 Assets/Pixel Map Terrain/

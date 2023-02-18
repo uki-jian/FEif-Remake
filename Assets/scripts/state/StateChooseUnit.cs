@@ -23,6 +23,7 @@ public class StateChooseUnit : IState
         if (FSM.GetConfirmation() && manager.factory.IsChosenUnitMyArmy())
         {
             manager.SetAttackUnit();
+            
             manager.TransitionState(BattleStateType.choose_move_pos);
         }
         if (FSM.GetCancell())
@@ -34,5 +35,6 @@ public class StateChooseUnit : IState
     public void OnExit() //退出这个状态应该执行的方法
     {
         Debug.Log("STATE_END: StateChooseUnit");
+        manager.factory.gridManager.SetMoveAndAttackGridsPattern(manager.factory.unitManager.chosenUnit);//显示可移动范围\显示攻击范围
     }
 }

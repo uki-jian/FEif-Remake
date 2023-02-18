@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MapTextController : MonoBehaviour
 {
     public Text mapText;
-    public GridManagement gridManagement;
+    public GridManager gridManagement;
     int width, height;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class MapTextController : MonoBehaviour
     {
         width = gridManagement.num_w;
         height = gridManagement.num_h;
-        Debug.Log("CONTROL: W:" + width);
+        //Debug.Log("CONTROL: W:" + width);
         mapText.text = "";
         for (int i = 0; i < height; i++)
         {
