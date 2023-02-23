@@ -18,11 +18,12 @@ public class Pos
     }
     public bool Equals(Pos a)
     {
-        return this.x == a.x && this.z == a.z;
+        return GetHashCode() == a.GetHashCode();
     }
     public override int GetHashCode()
     {
-        return (x* 100 + z).ToString().GetHashCode();
+        return (x * 100 + z).ToString().GetHashCode();
+        //return x.ToString().GetHashCode()+ z.ToString().GetHashCode();
     }
     public static bool Equal(Pos a, Pos b)
     {
@@ -57,5 +58,14 @@ public class Pos
             res.Add(new Pos(x - j, z + i));
         }
         return res;
+    }
+
+    public int CalcMagnitude(Pos dest)
+    {
+        return Mathf.Abs(x - dest.x) + Mathf.Abs(z - dest.z);
+    }
+    static public int CalcMagnitude(Pos origin, Pos dest)
+    {
+        return Mathf.Abs(origin.x - dest.x) + Mathf.Abs(origin.z - dest.z);
     }
 }

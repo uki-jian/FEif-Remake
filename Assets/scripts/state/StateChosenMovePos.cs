@@ -13,7 +13,7 @@ public class StateChosenMovePos : IState
     public void OnEnter() //进入这个状态应该进行的方法
     {
         Debug.Log("STATE_START: StateChosenMovePos");
-        manager.currentStateType = BattleStateType.choose_move_pos; //让控制器脚本的当前状态改成该状态
+        manager.currentStateType = BattleState.choose_move_pos; //让控制器脚本的当前状态改成该状态
         
         
 
@@ -26,14 +26,14 @@ public class StateChosenMovePos : IState
         {
             if (FSM.GetConfirmation()){
                 manager.MoveAttackUnitPos2CloneAndDistroyClone();
-                manager.TransitionState(BattleStateType.choose_attack_obj);
+                manager.TransitionState(BattleState.choose_attack_obj);
             }
             
         }
         if (FSM.GetCancell())
         {
             manager.DistroyCloneAttackUnit();
-            manager.TransitionState(BattleStateType.choose_unit);
+            manager.TransitionState(BattleState.choose_unit);
         }
         
     }

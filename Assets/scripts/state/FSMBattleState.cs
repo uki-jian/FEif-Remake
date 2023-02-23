@@ -5,8 +5,8 @@ using UnityEngine;
 public class FSMBattleState : FSM
 {
     public IState currentState;//当前状态
-    public BattleStateType currentStateType;//当前状态类型
-    public Dictionary<BattleStateType, IState> states = new Dictionary<BattleStateType, IState>();//状态字典
+    public BattleState currentStateType;//当前状态类型
+    public Dictionary<BattleState, IState> states = new Dictionary<BattleState, IState>();//状态字典
     public GameManager factory;
 
     public RoleUnit attackUnit;//进攻单位
@@ -22,15 +22,15 @@ public class FSMBattleState : FSM
     void Start()
     {
         #region
-        states.Add(BattleStateType.battle_start, new StateBattleStart(this));
-        states.Add(BattleStateType.choose_unit, new StateChooseUnit(this));
-        states.Add(BattleStateType.choose_move_pos, new StateChosenMovePos(this));
-        states.Add(BattleStateType.choose_attack_obj, new StateChooseAttackObj(this));
-        states.Add(BattleStateType.enemy_choose_unit, new StateEnemyAct(this));
-        states.Add(BattleStateType.battle_end_win, new StateBattleEndWin(this));
-        states.Add(BattleStateType.battle_end_lose, new StateBattleEndLose(this));
+        states.Add(BattleState.battle_start, new StateBattleStart(this));
+        states.Add(BattleState.choose_unit, new StateChooseUnit(this));
+        states.Add(BattleState.choose_move_pos, new StateChosenMovePos(this));
+        states.Add(BattleState.choose_attack_obj, new StateChooseAttackObj(this));
+        states.Add(BattleState.enemy_act, new StateEnemyAct(this));
+        states.Add(BattleState.battle_end_win, new StateBattleEndWin(this));
+        states.Add(BattleState.battle_end_lose, new StateBattleEndLose(this));
         #endregion
-        currentState = states[BattleStateType.battle_start];
+        currentState = states[BattleState.battle_start];
         currentState.OnEnter();
     }
 
@@ -53,7 +53,7 @@ public class FSMBattleState : FSM
     /// 转换为指定状态
     /// </summary>
     /// <param name="type">指定状态</param>
-    public virtual void TransitionState(BattleStateType type)
+    public virtual void TransitionState(BattleState type)
     {
         //如果当前存在状态，则进入当前状态的OnExit方法
         if (currentState != null)
@@ -61,7 +61,7 @@ public class FSMBattleState : FSM
             currentState.OnExit();
         }
         currentState = states[type];//切换当前状态
-        float cooling_time = 0.5f; //s
+        float cooling_time = 0.2f; //s
         Invoke("_TransitionState", cooling_time);//等一会再进入下个阶段，否则可能连续读取输入
 
     }
@@ -162,18 +162,28 @@ public class FSMBattleState : FSM
         }
         else return false;
     }
+    public void EnemyAttack()
+    {
+        RoleUnit[] roles = factory.unitManager.units;
+        foreach (RoleUnit role in roles)
+        {
+            if (!role.isDead && !factory.unitManager.IsUnitMyArmy(role))
+            {
+                RoleUnit obj_role = factory.unitManager.EnemyFindAttackObject(role);
+                factory.gridManager.RoleFindPathAndMove(role, obj_role);
+            }
+        }
+        //TransitionState(BattleState.choose_unit);
+    }
 }
-public enum BattleStateType
+public enum BattleState
 {
     battle_start,
-    checkpoint,
+    //checkpoint,
     choose_unit,
     choose_move_pos,
     choose_attack_obj,
-    enemy_checkpoint,
-    enemy_choose_unit,
-    enemy_choose_move_pos,
-    enemy_choose_attack_obj,
+    enemy_act,
     battle_end_win,
     battle_end_lose
 };

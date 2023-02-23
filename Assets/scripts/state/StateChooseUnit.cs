@@ -13,7 +13,7 @@ public class StateChooseUnit : IState
     public void OnEnter() //进入这个状态应该进行的方法
     {
         Debug.Log("STATE_START: StateChooseUnit");
-        manager.currentStateType = BattleStateType.choose_unit; //让控制器脚本的当前状态改成该状态
+        manager.currentStateType = BattleState.choose_unit; //让控制器脚本的当前状态改成该状态
 
 
     }
@@ -24,7 +24,7 @@ public class StateChooseUnit : IState
         {
             manager.SetAttackUnit();
             
-            manager.TransitionState(BattleStateType.choose_move_pos);
+            manager.TransitionState(BattleState.choose_move_pos);
         }
         if (FSM.GetCancell())
         {
@@ -35,6 +35,6 @@ public class StateChooseUnit : IState
     public void OnExit() //退出这个状态应该执行的方法
     {
         Debug.Log("STATE_END: StateChooseUnit");
-        manager.factory.gridManager.SetMoveAndAttackGridsPattern(manager.factory.unitManager.chosenUnit);//显示可移动范围\显示攻击范围
+        manager.factory.gridManager.ShowMoveAndAttackGridsPattern(manager.factory.unitManager.chosenUnit);//显示可移动范围\显示攻击范围
     }
 }

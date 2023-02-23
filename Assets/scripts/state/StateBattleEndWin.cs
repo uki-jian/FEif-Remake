@@ -13,7 +13,7 @@ public class StateBattleEndWin : IState
     public void OnEnter() //进入这个状态应该进行的方法
     {
         Debug.Log("STATE_START: StateBattleEndWin");
-        manager.currentStateType = BattleStateType.battle_end_win; //让控制器脚本的当前状态改成该状态
+        manager.currentStateType = BattleState.battle_end_win; //让控制器脚本的当前状态改成该状态
 
 
     }
