@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateEnemyAct : IState
+public class StateEnemyAct : MonoBehaviour, IState
 {
     public FSMBattleState manager;
 
@@ -22,7 +22,8 @@ public class StateEnemyAct : IState
         //manager.TransitionState(BattleStateType.choose_unit); //战斗开始后，进入我方选人阶段
         if (FSM.GetConfirmation())
         {
-            manager.EnemyAttack();
+            //StartCoroutine(manager.EnemyAttack());
+            //manager.EnemyAttack_();
             manager.TransitionState(BattleState.choose_unit);
         }
 

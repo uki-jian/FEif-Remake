@@ -15,6 +15,14 @@ public class FSMBattleState : FSM
     public RoleUnit chosenUnit;
     public GridUnit chosenGrid;
 
+    public StateBattleStart stateBattleStart;
+    public StateChooseUnit stateChooseUnit;
+    public StateChosenMovePos stateChosenMovePos;
+    public StateChooseAttackObj stateChooseAttackObj;
+    public StateEnemyAct stateEnemyAct;
+    public StateBattleEndWin stateBattleEndWin;
+    public StateBattleEndLose stateBattleEndLose;
+
     Pos lastPos;
     int myArmyIndex = 0;
 
@@ -22,13 +30,18 @@ public class FSMBattleState : FSM
     void Start()
     {
         #region
-        states.Add(BattleState.battle_start, new StateBattleStart(this));
-        states.Add(BattleState.choose_unit, new StateChooseUnit(this));
-        states.Add(BattleState.choose_move_pos, new StateChosenMovePos(this));
-        states.Add(BattleState.choose_attack_obj, new StateChooseAttackObj(this));
-        states.Add(BattleState.enemy_act, new StateEnemyAct(this));
-        states.Add(BattleState.battle_end_win, new StateBattleEndWin(this));
-        states.Add(BattleState.battle_end_lose, new StateBattleEndLose(this));
+        states.Add(BattleState.battle_start, stateBattleStart);
+        states.Add(BattleState.choose_unit, stateChooseUnit);
+        states.Add(BattleState.choose_move_pos, stateChosenMovePos);
+        //states.Add(BattleState.choose_attack_obj, new StateChooseAttackObj(this));
+        //states.Add(BattleState.enemy_act, new StateEnemyAct(this));
+
+        //ÓÐ¼Ì³ÐmonoµÄÀà
+        states.Add(BattleState.choose_attack_obj, stateChooseAttackObj);
+        states.Add(BattleState.enemy_act, stateEnemyAct);
+
+        states.Add(BattleState.battle_end_win, stateBattleEndWin);
+        states.Add(BattleState.battle_end_lose, stateBattleEndLose);
         #endregion
         currentState = states[BattleState.battle_start];
         currentState.OnEnter();
@@ -162,7 +175,7 @@ public class FSMBattleState : FSM
         }
         else return false;
     }
-    public void EnemyAttack()
+    public void EnemyAttack_()
     {
         RoleUnit[] roles = factory.unitManager.units;
         foreach (RoleUnit role in roles)
@@ -171,6 +184,20 @@ public class FSMBattleState : FSM
             {
                 RoleUnit obj_role = factory.unitManager.EnemyFindAttackObject(role);
                 factory.gridManager.RoleFindPathAndMove(role, obj_role);
+            }
+        }
+        //TransitionState(BattleState.choose_unit);
+    }
+    public IEnumerator EnemyAttack()
+    {
+        RoleUnit[] roles = factory.unitManager.units;
+        foreach (RoleUnit role in roles)
+        {
+            if (!role.isDead && !factory.unitManager.IsUnitMyArmy(role))
+            {
+                RoleUnit obj_role = factory.unitManager.EnemyFindAttackObject(role);
+                factory.gridManager.RoleFindPathAndMove(role, obj_role);
+                yield return new WaitForSeconds(0.2f);
             }
         }
         //TransitionState(BattleState.choose_unit);

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateBattleEndWin : IState
+public class StateBattleEndWin : MonoBehaviour, IState
 {
     public FSMBattleState manager;
 

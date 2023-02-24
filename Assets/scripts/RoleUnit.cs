@@ -66,6 +66,13 @@ public class RoleUnit : MonoBehaviour
             Die();
         }
     }
+    public void ShowDangerZone()
+    {
+        foreach(GridUnit grid in attackGrids)
+        {
+            grid.SetDanger();
+        }
+    }
     public bool HasCloneAvatar()
     {
         return displayedAvatar;
@@ -142,9 +149,12 @@ public class RoleUnit : MonoBehaviour
     }
     bool IsMoveable(Pos dst)
     {
-        int distance = RoleManager.Calc2UnitsDistance(pos, dst);
-        if (distance > move_speed) return false;
-        return true;
+        //int distance = RoleManager.Calc2UnitsDistance(pos, dst);
+        //if (distance > move_speed) return false;
+        //return true;
+
+        if (Pos.PosesContains(moveGrids, dst)) return true;
+        return false;
     }
     public void Move2Clone()
     {

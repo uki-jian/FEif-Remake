@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateChosenMovePos : IState
+public class StateChosenMovePos : MonoBehaviour, IState
 {
     public FSMBattleState manager;
 

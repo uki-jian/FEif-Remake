@@ -25,6 +25,8 @@ public class GridManager : MonoBehaviour
 
     public GameObject gridPatternChoose;
     public GameObject gridPatternAttack;
+    public GameObject gridPatternDanger;
+    public GameObject gridPatternFullDanger;
 
     //List<Pos> movePos;
     //List<Pos> attackPos;
@@ -71,7 +73,9 @@ public class GridManager : MonoBehaviour
             {
                 grids[i, j] = new GridUnit(jsonParser.gridProperties.gridProperties[j * num_w + i],
                     SetGridPattern(gridPatternChoose, GetWorldPosCenter(i, j)),
-                    SetGridPattern(gridPatternAttack, GetWorldPosCenter(i, j)));
+                    SetGridPattern(gridPatternAttack, GetWorldPosCenter(i, j)),
+                    SetGridPattern(gridPatternDanger, GetWorldPosCenter(i, j)),
+                    SetGridPattern(gridPatternFullDanger, GetWorldPosCenter(i, j)));
 
                 grids[i, j].SetPos(i, j);
                 arrayTextMesh[i, j] = SetText(arrayCell[i, j].ToString(), GetWorldPosCenter(i, j), Color.red);  //写数字
@@ -296,16 +300,17 @@ public class GridManager : MonoBehaviour
             {
                 //print("SONS" + newgrid.pos.x + newgrid.pos.z);
                 //print("WALK" + (fath.walkPoint - newgrid.gridProperty.AccessibilityIndex));
-                if (fath.walkPoint - newgrid.gridProperty.AccessibilityIndex >= 0)
+                int accessCost = newgrid.CalcAccessCost(role);
+                if (fath.walkPoint - accessCost >= 0)
                 {
-                    if (fath.walkPoint - newgrid.gridProperty.AccessibilityIndex > newgrid.walkPoint)   //剩余的点数多,即此路径更短
+                    if (fath.walkPoint - accessCost > newgrid.walkPoint)   //剩余的点数多,即此路径更短
                     {
-                        newgrid.walkPoint = fath.walkPoint - newgrid.gridProperty.AccessibilityIndex;
+                        newgrid.walkPoint = fath.walkPoint - accessCost;
                         newgrid.father = fath;
                         q_grids.Enqueue(newgrid);
                     }
                     
-                    if (!moveableGrids.Exists(_g => _g.pos==newgrid.pos))   //该点能够到达
+                    if (!moveableGrids.Exists(_g => _g.pos==newgrid.pos) && !newgrid.roleOn)   //该格子上没有角色
                     {
                         //print("ADD" + newgrid.pos.x + newgrid.pos.z);
                         moveableGrids.Add(newgrid);
@@ -419,7 +424,7 @@ public class GridManager : MonoBehaviour
             {
                 if (!GridsContains(close, grid))
                 {
-                    float Gtemp = fath.GValue + grid.gridProperty.AccessibilityIndex;
+                    float Gtemp = fath.GValue + grid.CalcAccessCost(atkRole); ;
                     float Htemp = Pos.CalcMagnitude(grid.pos, dest);
                     float Ftemp = Gtemp + Htemp;
 
@@ -461,10 +466,19 @@ public class GridManager : MonoBehaviour
 
     public void RoleMoveOnPath(RoleUnit role, List<GridUnit> path)
     {
-        foreach(GridUnit grid in path){
+        foreach (GridUnit grid in path)
+        {
             role.SetPos(grid.pos);
         }
     }
+    //IEnumerator RoleMoveOnPath(RoleUnit role, List<GridUnit> path)
+    //{
+    //    foreach (GridUnit grid in path)
+    //    {
+    //        role.SetPos(grid.pos);
+    //    }
+    //    yield return new WaitForSeconds(0.2f);
+    //}
 
     //void PathFindingDijkstra(GridUnit originGrid)
     //{

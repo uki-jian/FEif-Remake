@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateChooseUnit : IState
+public class StateChooseUnit : MonoBehaviour, IState
 {
     public FSMBattleState manager;
     
@@ -19,12 +19,20 @@ public class StateChooseUnit : IState
     }
     public void OnUpdate() //维持这个状态的方法
     {
-        //如果选中的人是我方角色
-        if (FSM.GetConfirmation() && manager.factory.IsChosenUnitMyArmy())
+        
+        if (FSM.GetConfirmation())
         {
-            manager.SetAttackUnit();
-            
-            manager.TransitionState(BattleState.choose_move_pos);
+            //如果选中的人是我方角色
+            if (manager.factory.IsChosenUnitMyArmy())
+            {
+                manager.SetAttackUnit();
+                manager.TransitionState(BattleState.choose_move_pos);
+            }
+            //如果选中的人是敌方角色
+            else
+            {
+                manager.factory.unitManager.chosenUnit.ShowDangerZone();
+            }
         }
         if (FSM.GetCancell())
         {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateChooseAttackObj : IState
+public class StateChooseAttackObj : MonoBehaviour, IState
 {
     public FSMBattleState manager;
 
@@ -61,6 +61,7 @@ public class StateChooseAttackObj : IState
     public void OnExit() //退出这个状态应该执行的方法
     {
         Debug.Log("STATE_END: StateChooseAttackObj");
-        manager.EnemyAttack();
+        //manager.EnemyAttack_();
+        StartCoroutine(manager.EnemyAttack());
     }
 }

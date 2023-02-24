@@ -29,10 +29,24 @@ public class GameManager : MonoBehaviour
         UpdateChosenGrid();
         UpdateChosenUnit();
         UpdateUnitMap();
-        UpdateUnitImagePos();
+        
         UpdateRoleMoveablePos();
+        UpdateUnitOnGrid();
+        UpdateUnitImagePos();
         //gridManager.AStarPathFinding(unitManager.units[0], unitManager.units[1]);
     }
+    void UpdateUnitOnGrid()
+    {
+        foreach(GridUnit grid in gridManager.grids)
+        {
+            grid.roleOn = null;
+        }
+        foreach(RoleUnit role in unitManager.units)
+        {
+            if (!role.isDead) gridManager.GetGridByPos(role.pos).roleOn = role;
+        }
+    }
+
     void UpdateRoleMoveablePos()
     {
         //print("UNITS_NUM" + unitManager.units.Length);
@@ -56,9 +70,15 @@ public class GameManager : MonoBehaviour
             {
                 int dx = unit.displayedPos.x, dz = unit.displayedPos.z;
                 Vector3 displayedPos = gridManager.GetWorldPosCenter(dx, dz);
+
                 if (unit.DisplayedPosEquals2Pos()) { unit.displayedAvatar.SetActive(false); }
                 else { unit.displayedAvatar.SetActive(true); }
-                if(gridManager.PosCanMove(unit.displayedPos, gridManager.SetMoveableGridsBFS(unit)))unit.displayedAvatar.transform.position = displayedPos;//ÐÞ¸Ä
+
+                //if(gridManager.PosCanMove(unit.displayedPos, gridManager.SetMoveableGridsBFS(unit)))unit.displayedAvatar.transform.position = displayedPos;//ÐÞ¸Ä
+                if (gridManager.GridsContains(unit.moveGrids, gridManager.GetGridByPos(unit.displayedPos)))
+                {
+                    unit.displayedAvatar.transform.position = displayedPos;
+                }
             }
         }
     }

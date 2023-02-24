@@ -48,6 +48,10 @@ public class RoleManager : MonoBehaviour
     {
         return unit.unitProperty.u_army == myArmyIndex;
     }
+    static public bool IsSameArmy(RoleUnit roleA, RoleUnit roleB)
+    {
+        return roleA.unitProperty.u_army == roleB.unitProperty.u_army;
+    }
     
     static public int Calc2UnitsDistance(Pos src, Pos dst)
     {

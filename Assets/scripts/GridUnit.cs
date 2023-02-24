@@ -12,10 +12,14 @@ public class GridUnit : MonoBehaviour
 
     public GameObject patternChoose; //格子实体（选择的贴图）
     public GameObject patternAttack; //格子实体（选择的贴图）
+    public GameObject patternDanger; //格子实体（选择的贴图）
+    public GameObject patternFullDanger; //格子实体（选择的贴图）
 
     public static Vector3 patternOffset=new Vector3(0,0.1f,0);  //贴图相对于格子的偏移量
 
     public bool IsChosen { get => isChosen; set => isChosen = value; }
+
+    public RoleUnit roleOn;
 
     public int walkPoint; //剩余移动点数(求路径用）
     public GridUnit father; //父亲节点(求路径用）
@@ -24,10 +28,12 @@ public class GridUnit : MonoBehaviour
     public float GValue;    //AStar to origin estimate
     public float HValue;    //AStar to destination estimate
 
+    static public int maxCost = 100;
+
     //public Material mat_patternAttack;
     //public UnitRole avatar;
 
-    public GridUnit(GridProperty _gridProperty, GameObject _choose, GameObject _attack)
+    public GridUnit(GridProperty _gridProperty, GameObject _choose, GameObject _attack, GameObject _danger, GameObject _fullDanger)
     {
         isExist = true;
         IsChosen = false;
@@ -35,9 +41,13 @@ public class GridUnit : MonoBehaviour
         gridProperty = _gridProperty;
         patternChoose = _choose;
         patternAttack = _attack;
+        patternDanger = _danger;
+        patternFullDanger = _fullDanger;
 
         patternChoose.SetActive(false);
         patternAttack.SetActive(false);
+        patternDanger.SetActive(false);
+        patternFullDanger.SetActive(false);
 
         altitude = gridProperty.altitude;
     }
@@ -84,16 +94,36 @@ public class GridUnit : MonoBehaviour
     {
         patternChoose.SetActive(true);
         patternAttack.SetActive(false);
+        patternDanger.SetActive(false);
+        patternFullDanger.SetActive(false);
     }
     public void SetAttack()
     {
-        patternAttack.SetActive(true);
         patternChoose.SetActive(false);
+        patternAttack.SetActive(true);
+        patternDanger.SetActive(false);
+        patternFullDanger.SetActive(false);
+    }
+    public void SetDanger()
+    {
+        patternChoose.SetActive(false);
+        patternAttack.SetActive(false);
+        patternDanger.SetActive(true);
+        patternFullDanger.SetActive(false);
+    }
+    public void SetFullDanger()
+    {
+        patternChoose.SetActive(false);
+        patternAttack.SetActive(false);
+        patternDanger.SetActive(false);
+        patternFullDanger.SetActive(true);
     }
     public void SetReset()
     {
-        patternAttack.SetActive(false);
         patternChoose.SetActive(false);
+        patternAttack.SetActive(false);
+        patternDanger.SetActive(false);
+        patternFullDanger.SetActive(false);
     }
 
     public void SetPatternColor(int color=0)
@@ -108,9 +138,17 @@ public class GridUnit : MonoBehaviour
 
     }
 
-    //public int CompareTo(GridUnit other)
-    //{
-    //    if (this.FValue > other.FValue) return 1;
-    //    else return -1;
-    //}
+    public int CalcAccessCost(RoleUnit role)
+    {
+        int accessCost = 0;
+        if (roleOn && !RoleManager.IsSameArmy(role, roleOn))
+        {
+            accessCost = GridUnit.maxCost;
+        }
+        else
+        {
+            accessCost = gridProperty.AccessibilityIndex;
+        }
+        return accessCost;
+    }
 }

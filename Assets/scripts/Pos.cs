@@ -68,4 +68,16 @@ public class Pos
     {
         return Mathf.Abs(origin.x - dest.x) + Mathf.Abs(origin.z - dest.z);
     }
+    static public bool PosesContains(List<Pos> l_poses, Pos p)
+    {
+        return l_poses.Exists(_p => _p == p);
+    }
+    static public bool PosesContains(List<GridUnit> l_grids, Pos p)
+    {
+        return l_grids.Exists(_g => _g.pos == p);
+    }
+    static public bool PosesContains(List<GridUnit> l_grids, GridUnit g)
+    {
+        return l_grids.Exists(_g => _g.pos == g.pos);
+    }
 }
