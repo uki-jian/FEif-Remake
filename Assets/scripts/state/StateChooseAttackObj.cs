@@ -40,15 +40,19 @@ public class StateChooseAttackObj : MonoBehaviour, IState
             {
                 manager.TransitionState(BattleState.battle_end_lose);
             }
-            if (manager.IsBattleWin())
+            else if (manager.IsBattleWin())
             {
                 manager.TransitionState(BattleState.battle_end_win);
             }
-            if (manager.IsAllMyArmyMoved())
+            else if (manager.IsAllMyArmyMoved())
             {
+                print("MOVEDDDDDD");
                 manager.TransitionState(BattleState.enemy_act);
             }
-            manager.TransitionState(BattleState.choose_unit);
+            else
+            {
+                manager.TransitionState(BattleState.choose_unit);
+            }
         }
 
         if (FSM.GetCancell())
@@ -62,6 +66,6 @@ public class StateChooseAttackObj : MonoBehaviour, IState
     {
         Debug.Log("STATE_END: StateChooseAttackObj");
         //manager.EnemyAttack_();
-        StartCoroutine(manager.EnemyAttack());
+        
     }
 }

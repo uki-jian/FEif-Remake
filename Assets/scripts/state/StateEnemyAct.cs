@@ -14,7 +14,7 @@ public class StateEnemyAct : MonoBehaviour, IState
     {
         Debug.Log("STATE_START: StateBattleEnemyAct");
         manager.currentStateType = BattleState.enemy_act; //让控制器脚本的当前状态改成该状态
-
+        StartCoroutine(manager.EnemyAttack());
 
     }
     public void OnUpdate() //维持这个状态的方法
