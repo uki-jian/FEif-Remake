@@ -379,6 +379,27 @@ public class GridManager : MonoBehaviour
         //}
         return attackableGrids;
     }
+
+    public bool RoleCanAttackOnGrid(RoleUnit role, GridUnit grid)
+    {
+        int minRange = role.attack_dist;
+        int maxRange = role.attack_dist;
+
+
+        for (int i = minRange; i <= maxRange; i++)
+        {
+            List<GridUnit> gs = GetGridByPos(FiltrateValidPos(role.pos.GetEquidistanceGrids(i)));
+            foreach (GridUnit g in gs)
+            {
+                print("ATK_POS" + g.pos.x + g.pos.z);
+                if(g.pos == grid.pos)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     public void SetAndChooseAttackGrid(RoleUnit role)
     {
         List<GridUnit> attackableGrids = SetAttackableGrids(role, true);
@@ -389,11 +410,11 @@ public class GridManager : MonoBehaviour
     }
 
 
-    public void RoleFindPathAndMove(RoleUnit atkRole, RoleUnit defRole)
+    public bool RoleFindPathAndMove(RoleUnit atkRole, RoleUnit defRole)
     {
         //print("PATHFINDING");
         List<GridUnit> path = AStarPathFinding(atkRole, defRole);
-        RoleMoveOnPath(atkRole, path);
+        return RoleMoveOnPath(atkRole, path, GetGridByPos(defRole.pos));
     }
     public List<GridUnit> AStarPathFinding(RoleUnit atkRole, RoleUnit defRole)
     {
@@ -470,25 +491,31 @@ public class GridManager : MonoBehaviour
             //print("GXZ" + g.pos.x + g.pos.z);
             //ÏÔÊ¾Â·Ïß
 
-            if (g.pos == oriGrid.pos) break;
             if (GridsContains(move, g))
             {
                 path.Add(g);
                 //g.SetAttack();
             }
+            if (g.pos == oriGrid.pos) break;
             g = g.father;
         }
+
         path.Reverse();
         return path;
 
     }
 
-    public void RoleMoveOnPath(RoleUnit role, List<GridUnit> path)
+    public bool RoleMoveOnPath(RoleUnit role, List<GridUnit> path, GridUnit dest)
     {
         foreach (GridUnit grid in path)
         {
             role.SetPos(grid.pos);
+            if(RoleCanAttackOnGrid(role, dest))
+            {
+                return true;
+            }
         }
+        return false;
     }
     //IEnumerator RoleMoveOnPath(RoleUnit role, List<GridUnit> path)
     //{

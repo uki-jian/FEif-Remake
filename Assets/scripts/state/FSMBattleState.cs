@@ -196,7 +196,13 @@ public class FSMBattleState : FSM
             if (!role.isDead && !factory.unitManager.IsUnitMyArmy(role))
             {
                 RoleUnit obj_role = factory.unitManager.EnemyFindAttackObject(role);
-                factory.gridManager.RoleFindPathAndMove(role, obj_role);
+                bool attackable = factory.gridManager.RoleFindPathAndMove(role, obj_role);
+                
+                if (attackable)
+                {
+                    print("ENEMY ATTACK!");
+                    factory.battleManager.Battle(role, obj_role);
+                }
                 yield return new WaitForSeconds(0.2f);
             }
         }

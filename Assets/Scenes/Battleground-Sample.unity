@@ -5603,7 +5603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   full_hitpoints: 8
-  remained_hitpoints: 8
+  remained_hitpoints: 1
   attack_points: 3
   attack_dist: 1
   move_speed: 3
@@ -14831,7 +14831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   full_hitpoints: 10
-  remained_hitpoints: 10
+  remained_hitpoints: 1
   attack_points: 5
   attack_dist: 1
   move_speed: 7

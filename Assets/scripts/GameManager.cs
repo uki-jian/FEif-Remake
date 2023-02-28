@@ -209,7 +209,6 @@ public class GameManager : MonoBehaviour
             if (!unit.isDead && unit.unitProperty.u_army == unitManager.myArmyIndex) cnt++;
         }
         return cnt;
-
     }
     //void UnitMoveStat(UnitClass unit)
     //{

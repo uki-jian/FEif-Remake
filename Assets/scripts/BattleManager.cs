@@ -8,8 +8,9 @@ public class BattleManager: RoleManager
     //一次战斗
     public void Battle(RoleUnit own, RoleUnit foe)
     {
-        Debug.Log("BATTLED!!!");
+        Debug.Log("BATTLED!!!"+"own"+ own.attack_points + "foe"+ foe.attack_points);
         int dist = Calc2UnitsDistance(own.pos, foe.pos);
+        //print("DIST" + dist);
         if(dist <= own.attack_dist)
         {
             foe.remained_hitpoints -= own.attack_points;    //我方攻击
