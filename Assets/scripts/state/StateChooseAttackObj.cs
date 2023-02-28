@@ -14,7 +14,8 @@ public class StateChooseAttackObj : MonoBehaviour, IState
     {
         Debug.Log("STATE_START: StateChooseAttackObj");
         manager.currentStateType = BattleState.choose_attack_obj; //让控制器脚本的当前状态改成该状态
-
+        //manager.factory.gridManager.ShowAttackGridsPattern(manager.chosenUnit);
+        manager.factory.gridManager.SetAndChooseAttackGrid(manager.chosenUnit);
 
     }
     public void OnUpdate() //维持这个状态的方法
@@ -36,15 +37,15 @@ public class StateChooseAttackObj : MonoBehaviour, IState
             manager.AttackUnitMoved();
 
 
-            if (manager.IsBattleLose())
-            {
-                manager.TransitionState(BattleState.battle_end_lose);
-            }
-            else if (manager.IsBattleWin())
-            {
-                manager.TransitionState(BattleState.battle_end_win);
-            }
-            else if (manager.IsAllMyArmyMoved())
+            //if (manager.IsBattleLose())
+            //{
+            //    manager.TransitionState(BattleState.battle_end_lose);
+            //}
+            //else if (manager.IsBattleWin())
+            //{
+            //    manager.TransitionState(BattleState.battle_end_win);
+            //}
+            if (manager.IsAllMyArmyMoved())
             {
                 print("MOVEDDDDDD");
                 manager.TransitionState(BattleState.enemy_act);
@@ -66,6 +67,6 @@ public class StateChooseAttackObj : MonoBehaviour, IState
     {
         Debug.Log("STATE_END: StateChooseAttackObj");
         //manager.EnemyAttack_();
-        
+        manager.factory.gridManager.ClearGridsPattern();
     }
 }

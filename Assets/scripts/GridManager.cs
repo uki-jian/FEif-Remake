@@ -274,6 +274,13 @@ public class GridManager : MonoBehaviour
             grid.SetChoose();
         }
     }
+    public void ShowAttackGridsPattern(RoleUnit role)
+    {
+        foreach (GridUnit grid in role.attackGrids)
+        {
+            grid.SetAttack();
+        }
+    }
     public List<GridUnit> SetMoveableGridsBFS(RoleUnit role)
     {
         //所有节点walkPoint置INTMIN和father 置零
@@ -334,11 +341,14 @@ public class GridManager : MonoBehaviour
     }
 
     //设置能攻击到的格子
-    public List<GridUnit> SetAttackableGrids(RoleUnit role)
+    public List<GridUnit> SetAttackableGrids(RoleUnit role, bool isMoved=false)
     {
         List<GridUnit> attackableGrids = new List<GridUnit>();
 
-        List<GridUnit> move = role.moveGrids;
+        List<GridUnit> move = new List<GridUnit>();
+        if (!isMoved) { move = role.moveGrids; }
+        else { move.Add(GetGridByPos(role.pos)); }
+
         int minRange = role.attack_dist;
         int maxRange = role.attack_dist;
 
@@ -369,6 +379,15 @@ public class GridManager : MonoBehaviour
         //}
         return attackableGrids;
     }
+    public void SetAndChooseAttackGrid(RoleUnit role)
+    {
+        List<GridUnit> attackableGrids = SetAttackableGrids(role, true);
+        foreach(GridUnit grid in attackableGrids)
+        {
+            grid.SetAttack();
+        }
+    }
+
 
     public void RoleFindPathAndMove(RoleUnit atkRole, RoleUnit defRole)
     {

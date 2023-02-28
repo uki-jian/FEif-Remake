@@ -59,12 +59,8 @@ public class RoleUnit : MonoBehaviour
         //    if (unitID >= 0 && unitID < unitManager.jsonParser.unitProperties.unitProperties.Count)
         //        unitProperty = unitManager.jsonParser.unitProperties.unitProperties[unitID];
         //}
+        tryDie();
 
-        if (remained_hitpoints <= 0 && isDead == false)
-        {
-            isDead = true;
-            Die();
-        }
     }
     public void ShowDangerZone()
     {
@@ -92,9 +88,15 @@ public class RoleUnit : MonoBehaviour
         if(HasCloneAvatar())
             GameObject.DestroyImmediate(displayedAvatar);
     }
-    void Die()
+    public bool tryDie()
     {
-        avater.SetActive(false);
+        if (isDead) return true;
+        if (remained_hitpoints <= 0)
+        {
+            isDead = true;
+            avater.SetActive(false);
+        }
+        return isDead;
     }
     public bool SetDisplayedPos(Pos p)
     {

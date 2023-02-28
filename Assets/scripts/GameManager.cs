@@ -4,7 +4,8 @@ public class GameManager : MonoBehaviour
 {
     public GridManager gridManager;
     public RoleManager unitManager;
-    public JsonManager jsonParser;
+    public JsonManager jsonManager;
+    public BattleManager battleManager;
     
     //int num_w, num_h;
 
@@ -88,7 +89,8 @@ public class GameManager : MonoBehaviour
     }
     public RoleUnit GetChosenUnit()
     {
-        return unitManager.chosenUnit;
+        //return unitManager.chosenUnit;
+        return GetChosenGrid().roleOn;
     }
     //选中角色是否能到达某处？如果能到达则执行
     public bool UnitReachGrid(RoleUnit unit, GridUnit grid)
@@ -187,15 +189,15 @@ public class GameManager : MonoBehaviour
     public void UnitsBattle(RoleUnit own, RoleUnit foe)
     {
         if(own && foe)
-            BattleManager.Battle(own, foe);
-        own.IsMoved = true;//攻击方本回合已行动
+            battleManager.Battle(own, foe);
+        //own.IsMoved = true;//攻击方本回合已行动
     }
     public int CountEnemyLived()
     {
         int cnt = 0;
         foreach(RoleUnit unit in unitManager.units)
         {
-            if (unit.unitProperty.u_army != unitManager.myArmyIndex) cnt++;
+            if (!unit.isDead && unit.unitProperty.u_army != unitManager.myArmyIndex) cnt++;
         }
         return cnt;
     }
@@ -204,7 +206,7 @@ public class GameManager : MonoBehaviour
         int cnt = 0;
         foreach (RoleUnit unit in unitManager.units)
         {
-            if (unit.unitProperty.u_army == unitManager.myArmyIndex) cnt++;
+            if (!unit.isDead && unit.unitProperty.u_army == unitManager.myArmyIndex) cnt++;
         }
         return cnt;
 

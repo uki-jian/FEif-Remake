@@ -20,7 +20,7 @@ public class StateChooseUnit : MonoBehaviour, IState
     public void OnUpdate() //维持这个状态的方法
     {
         
-        if (FSM.GetConfirmation())
+        if (FSM.GetConfirmation() && manager.factory.unitManager.chosenUnit)
         {
             //如果选中的人是我方角色
             if (manager.factory.IsChosenUnitMyArmy())
